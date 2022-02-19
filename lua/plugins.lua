@@ -6,6 +6,7 @@ return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
   use 'neovim/nvim-lspconfig'
   use 'williamboman/nvim-lsp-installer'  use 'williamboman/nvim-lsp-installer'
+
   use 'EdenEast/nightfox.nvim'
 
   use {
@@ -18,17 +19,24 @@ return require('packer').startup(function()
   use {
     'yamatsum/nvim-nonicons',
     requires = {'kyazdani42/nvim-web-devicons'}
-}
-
-  -- Use specific branch, dependency and run lua file after load
-  use {
-    'glepnir/galaxyline.nvim', branch = 'main', config = function() require'statusline' end,
-    requires = {'kyazdani42/nvim-web-devicons'}
   }
+
+	use {
+		'nvim-lualine/lualine.nvim',
+		requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+	}
 
   -- You can specify multiple plugins in a single call
   use 'tjdevries/colorbuddy.vim'
 
   -- You can alias plugin names
   use {'dracula/vim', as = 'dracula'}
+
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = {
+      'kyazdani42/nvim-web-devicons', -- optional, for file icon
+    },
+    config = function() require'nvim-tree'.setup {} end
+  }
 end)
