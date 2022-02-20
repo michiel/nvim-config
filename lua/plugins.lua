@@ -19,26 +19,27 @@ return require('packer').startup(function()
          show_current_context_start = true,
          show_end_of_line = true,
          space_char_blankline = " ",
-         char_highlight_list = {
-            "IndentBlanklineIndent1",
-            "IndentBlanklineIndent2",
-            "IndentBlanklineIndent3",
-            "IndentBlanklineIndent4",
-            "IndentBlanklineIndent5",
-            "IndentBlanklineIndent6",
-          },
+      -- char_highlight_list = {
+      --    "IndentBlanklineIndent1",
+      --    "IndentBlanklineIndent2",
+      --    "IndentBlanklineIndent3",
+      --    "IndentBlanklineIndent4",
+      --    "IndentBlanklineIndent5",
+      --    "IndentBlanklineIndent6",
+      --  },
        }
      end
   }
 
   use 'tpope/vim-fugitive'
+  use 'gelguy/wilder.nvim'
   use 'EdenEast/nightfox.nvim'
-  use {
-    'rcarriga/nvim-notify',
-    config = function()
-      vim.notify = require("notify")
-    end
-}
+  --use {
+  --  'rcarriga/nvim-notify',
+  --  config = function()
+  --    -- vim.notify = require("notify")
+  --  end
+  --}
 
   use {
     'nvim-telescope/telescope.nvim',
@@ -70,4 +71,20 @@ return require('packer').startup(function()
     },
     config = function() require'nvim-tree'.setup {} end
   }
+
+	use {
+		"hrsh7th/nvim-cmp",
+		requires = {
+			"hrsh7th/cmp-buffer", "hrsh7th/cmp-nvim-lsp",
+			'hrsh7th/cmp-nvim-lua',
+			'octaltree/cmp-look', 'hrsh7th/cmp-path', 'hrsh7th/cmp-calc',
+			'f3fora/cmp-spell', 'hrsh7th/cmp-emoji',
+      'rafamadriz/friendly-snippets', 'L3MON4D3/LuaSnip'
+		}
+	}
+	use {
+		'tzachar/cmp-tabnine',
+		run = './install.sh',
+		requires = 'hrsh7th/nvim-cmp'
+	}
 end)

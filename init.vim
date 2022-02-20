@@ -10,11 +10,12 @@ set expandtab
 set ts=2
 
 """" UI Config
-set wildmenu            " visual autocomplete for command menu
 set lazyredraw          " redraw only when we need to.
 set showmatch           " highlight matching [{()}]
 set showcmd             " show command in bottom bar
 set cursorline          " highlight current line
+set completeopt=menu,menuone,noselect
+set wildmenu            " visual autocomplete for command menu
 
 set wildmode=list:longest
 set ignorecase
@@ -60,4 +61,6 @@ highlight IndentBlanklineIndent6 guifg=#C678DD gui=nocombine
 lua require('plugins')
 lua require('lsp')
 lua require('nvim-tree-config')
+lua require('completion')
 
+call wilder#setup({'modes': [':', '/', '?']})
