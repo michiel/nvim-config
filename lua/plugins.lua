@@ -5,9 +5,40 @@ return require('packer').startup(function()
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
   use 'neovim/nvim-lspconfig'
-  use 'williamboman/nvim-lsp-installer'  use 'williamboman/nvim-lsp-installer'
+  use 'williamboman/nvim-lsp-installer'
+  use { 
+    'lukas-reineke/indent-blankline.nvim',
+     config = function()
 
+       vim.opt.list = true
+       vim.opt.listchars:append("space:⋅")
+       vim.opt.listchars:append("eol:↴")
+
+       require('indent_blankline').setup {
+         show_current_context = true,
+         show_current_context_start = true,
+         show_end_of_line = true,
+         space_char_blankline = " ",
+         char_highlight_list = {
+            "IndentBlanklineIndent1",
+            "IndentBlanklineIndent2",
+            "IndentBlanklineIndent3",
+            "IndentBlanklineIndent4",
+            "IndentBlanklineIndent5",
+            "IndentBlanklineIndent6",
+          },
+       }
+     end
+  }
+
+  use 'tpope/vim-fugitive'
   use 'EdenEast/nightfox.nvim'
+  use {
+    'rcarriga/nvim-notify',
+    config = function()
+      vim.notify = require("notify")
+    end
+}
 
   use {
     'nvim-telescope/telescope.nvim',
@@ -21,10 +52,10 @@ return require('packer').startup(function()
     requires = {'kyazdani42/nvim-web-devicons'}
   }
 
-	use {
-		'nvim-lualine/lualine.nvim',
-		requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-	}
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
 
   -- You can specify multiple plugins in a single call
   use 'tjdevries/colorbuddy.vim'

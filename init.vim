@@ -1,9 +1,5 @@
 set nocompatible
 
-lua require('plugins')
-lua require('lsp')
-lua require('nvim-tree-config')
-
 syntax enable
 
 set autoindent
@@ -53,3 +49,15 @@ set termguicolors " this variable must be enabled for colors to be applied prope
 
 " a list of groups can be found at `:help nvim_tree_highlight`
 " highlight NvimTreeFolderIcon guibg=blue
+
+highlight IndentBlanklineIndent1 guifg=#E06C75 gui=nocombine
+highlight IndentBlanklineIndent2 guifg=#E5C07B gui=nocombine
+highlight IndentBlanklineIndent3 guifg=#98C379 gui=nocombine
+highlight IndentBlanklineIndent4 guifg=#56B6C2 gui=nocombine
+highlight IndentBlanklineIndent5 guifg=#61AFEF gui=nocombine
+highlight IndentBlanklineIndent6 guifg=#C678DD gui=nocombine
+
+lua require('plugins')
+lua require('lsp')
+lua require('nvim-tree-config')
+
