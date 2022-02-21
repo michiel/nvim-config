@@ -22,8 +22,29 @@ set ignorecase
 set smartcase
 set number
 set title
+set signcolumn=yes       " prevents column jumping for lsp labels
 
 lua require('colorscheme')
+
+set termguicolors " this variable must be enabled for colors to be applied properly
+
+" a list of groups can be found at `:help nvim_tree_highlight`
+" highlight NvimTreeFolderIcon guibg=blue
+
+highlight IndentBlanklineIndent1 guifg=#E06C75 gui=nocombine
+highlight IndentBlanklineIndent2 guifg=#E5C07B gui=nocombine
+highlight IndentBlanklineIndent3 guifg=#98C379 gui=nocombine
+highlight IndentBlanklineIndent4 guifg=#56B6C2 gui=nocombine
+highlight IndentBlanklineIndent5 guifg=#61AFEF gui=nocombine
+highlight IndentBlanklineIndent6 guifg=#C678DD gui=nocombine
+
+lua require('plugins')
+lua require('lsp')
+lua require('nvim-tree-config')
+lua require('completion')
+lua require('statusline')
+
+call wilder#setup({'modes': [':', '/', '?']})
 
 let mapleader = ","
 map <Leader>n :set number!<CR>
@@ -43,24 +64,6 @@ nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 nnoremap <C-n> :NvimTreeToggle<CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
-nnoremap <leader>n :NvimTreeFindFile<CR>
+" nnoremap <leader>n :NvimTreeFindFile<CR>
 " NvimTreeOpen, NvimTreeClose, NvimTreeFocus, NvimTreeFindFileToggle, and NvimTreeResize are also available if you need them
 
-set termguicolors " this variable must be enabled for colors to be applied properly
-
-" a list of groups can be found at `:help nvim_tree_highlight`
-" highlight NvimTreeFolderIcon guibg=blue
-
-highlight IndentBlanklineIndent1 guifg=#E06C75 gui=nocombine
-highlight IndentBlanklineIndent2 guifg=#E5C07B gui=nocombine
-highlight IndentBlanklineIndent3 guifg=#98C379 gui=nocombine
-highlight IndentBlanklineIndent4 guifg=#56B6C2 gui=nocombine
-highlight IndentBlanklineIndent5 guifg=#61AFEF gui=nocombine
-highlight IndentBlanklineIndent6 guifg=#C678DD gui=nocombine
-
-lua require('plugins')
-lua require('lsp')
-lua require('nvim-tree-config')
-lua require('completion')
-
-call wilder#setup({'modes': [':', '/', '?']})
