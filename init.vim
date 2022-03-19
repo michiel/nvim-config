@@ -14,17 +14,16 @@ set lazyredraw          " redraw only when we need to.
 set showmatch           " highlight matching [{()}]
 set showcmd             " show command in bottom bar
 set cursorline          " highlight current line
+" set wildmode=list:longest
+set wildmode=longest,list:full
 set completeopt=menu,menuone,noselect
 set wildmenu            " visual autocomplete for command menu
 
-set wildmode=list:longest
 set ignorecase
 set smartcase
 set number
 set title
 set signcolumn=yes       " prevents column jumping for lsp labels
-
-lua require('colorscheme')
 
 set termguicolors " this variable must be enabled for colors to be applied properly
 
@@ -43,6 +42,9 @@ lua require('lsp')
 lua require('nvim-tree-config')
 lua require('completion')
 lua require('statusline')
+
+lua require('colorscheme')
+colorscheme nightfox
 
 call wilder#setup({'modes': [':', '/', '?']})
 
@@ -66,4 +68,7 @@ nnoremap <C-n> :NvimTreeToggle<CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
 " nnoremap <leader>n :NvimTreeFindFile<CR>
 " NvimTreeOpen, NvimTreeClose, NvimTreeFocus, NvimTreeFindFileToggle, and NvimTreeResize are also available if you need them
+
+let g:vimwiki_list = [{'path': '~/obsidian-digio/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
 

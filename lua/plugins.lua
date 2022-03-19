@@ -12,12 +12,12 @@ return require('packer').startup(function()
 
        vim.opt.list = true
        vim.opt.listchars:append("space:⋅")
-       vim.opt.listchars:append("eol:↴")
+       -- vim.opt.listchars:append("eol:↴")
 
        require('indent_blankline').setup {
          show_current_context = true,
          show_current_context_start = true,
-         show_end_of_line = true,
+         -- show_end_of_line = true,
          space_char_blankline = " ",
       -- char_highlight_list = {
       --    "IndentBlanklineIndent1",
@@ -32,8 +32,18 @@ return require('packer').startup(function()
   }
 
   use 'tpope/vim-fugitive'
+  use 'vimwiki/vimwiki'
   use 'gelguy/wilder.nvim'
   use 'EdenEast/nightfox.nvim'
+  use 'flazz/vim-colorschemes'
+  use {
+    'olimorris/onedarkpro.nvim',
+    config = function()
+        require('onedarkpro').load()
+    end
+  }
+  use 'bluz71/vim-moonfly-colors'
+
   --use {
   --  'rcarriga/nvim-notify',
   --  config = function()
@@ -75,11 +85,16 @@ return require('packer').startup(function()
 	use {
 		"hrsh7th/nvim-cmp",
 		requires = {
-			"hrsh7th/cmp-buffer", "hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-nvim-lsp",
 			'hrsh7th/cmp-nvim-lua',
-			'octaltree/cmp-look', 'hrsh7th/cmp-path', 'hrsh7th/cmp-calc',
-			'f3fora/cmp-spell', 'hrsh7th/cmp-emoji',
-      'rafamadriz/friendly-snippets', 'L3MON4D3/LuaSnip'
+			'octaltree/cmp-look',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-calc',
+			'f3fora/cmp-spell',
+      'hrsh7th/cmp-emoji',
+      'rafamadriz/friendly-snippets',
+      'L3MON4D3/LuaSnip'
 		}
 	}
 	use {
@@ -87,4 +102,11 @@ return require('packer').startup(function()
 		run = './install.sh',
 		requires = 'hrsh7th/nvim-cmp'
 	}
+
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end
+  }
 end)
