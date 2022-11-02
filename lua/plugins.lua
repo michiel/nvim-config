@@ -18,7 +18,7 @@ return require('packer').startup(function()
          show_current_context = true,
          show_current_context_start = true,
          -- show_end_of_line = true,
-         space_char_blankline = " ",
+         -- space_char_blankline = " ",
       -- char_highlight_list = {
       --    "IndentBlanklineIndent1",
       --    "IndentBlanklineIndent2",
@@ -31,17 +31,18 @@ return require('packer').startup(function()
      end
   }
 
+  use 'aklt/plantuml-syntax'
   use 'tpope/vim-fugitive'
   use 'vimwiki/vimwiki'
   use 'gelguy/wilder.nvim'
   use 'EdenEast/nightfox.nvim'
   use 'flazz/vim-colorschemes'
-  use {
-    'olimorris/onedarkpro.nvim',
-    config = function()
-        require('onedarkpro').load()
-    end
-  }
+  -- use {
+  --   'olimorris/onedarkpro.nvim',
+  --   config = function()
+  --       require('onedarkpro').load()
+  --   end
+  -- }
   use 'bluz71/vim-moonfly-colors'
 
   --use {
@@ -73,6 +74,8 @@ return require('packer').startup(function()
 
   -- You can alias plugin names
   use {'dracula/vim', as = 'dracula'}
+
+  use {'jparise/vim-graphql'}
 
   use {
     'kyazdani42/nvim-tree.lua',

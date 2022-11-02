@@ -44,7 +44,8 @@ lua require('completion')
 lua require('statusline')
 
 lua require('colorscheme')
-colorscheme nightfox
+colorscheme duskfox
+" colorscheme nightfox
 
 call wilder#setup({'modes': [':', '/', '?']})
 
@@ -63,6 +64,8 @@ nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+nnoremap <leader>fc <cmd>lua require('telescope.builtin').colorscheme()<cr>
+nnoremap <leader>fq <cmd>lua require('telescope.builtin').quickfix()<cr>
 
 nnoremap <C-n> :NvimTreeToggle<CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
