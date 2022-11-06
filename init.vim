@@ -43,8 +43,12 @@ lua require('nvim-tree-config')
 lua require('completion')
 lua require('statusline')
 
+" set background transparency
+" autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
+
 lua require('colorscheme')
-colorscheme duskfox
+colorscheme moonfly
+" colorscheme duskfox
 " colorscheme nightfox
 
 call wilder#setup({'modes': [':', '/', '?']})
@@ -68,7 +72,8 @@ nnoremap <leader>fc <cmd>lua require('telescope.builtin').colorscheme()<cr>
 nnoremap <leader>fq <cmd>lua require('telescope.builtin').quickfix()<cr>
 
 nnoremap <C-n> :NvimTreeToggle<CR>
-nnoremap <leader>r :NvimTreeRefresh<CR>
+nnoremap <C-f> :NvimTreeFocus<CR>
+" nnoremap <leader>r :NvimTreeRefresh<CR>
 " nnoremap <leader>n :NvimTreeFindFile<CR>
 " NvimTreeOpen, NvimTreeClose, NvimTreeFocus, NvimTreeFindFileToggle, and NvimTreeResize are also available if you need them
 

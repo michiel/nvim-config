@@ -47,7 +47,7 @@ vim.api.nvim_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>'
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'pyright', 'rust_analyzer', 'tsserver' }
+local servers = { 'pyright', 'tsserver' }
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
     on_attach = on_attach,
@@ -57,6 +57,48 @@ for _, lsp in pairs(servers) do
     }
   }
 end
+
+require('lspconfig').rust_analyzer.setup {
+  on_attach = on_attach,
+  settings = {
+    ["rust-analyzer"] = {
+      assist = {
+        importMergeBehavior = "last",
+        importPrefix = "by_self",
+      },
+      diagnostics = {
+        -- disabled = { "unresolved-import" }
+      },
+      cargo = {
+          loadOutDirsFromCheck = true
+      },
+      procMacro = {
+          enable = true
+      },
+      checkOnSave = {
+          command = "clippy"
+      },
+    }
+  }
+}
+
+-- require('lspconfig')['rust_analyzer'].setup({
+--   on_attach = on_attach,
+--   imports = {
+--     granularity = {
+--       group = "module",
+--     },
+--     prefix = "self",
+--   },
+--   cargo = {
+--     buildScripts = {
+--       enable = true,
+--     },
+--   },
+--   procMacro = {
+--     enable = true
+--   },
+-- })
 
 -- Configure lua language server for neovim development
 local lua_settings = {

@@ -6,6 +6,7 @@ return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
   use 'neovim/nvim-lspconfig'
   use 'williamboman/nvim-lsp-installer'
+  -- use 'simrat39/rust-tools.nvim'
   use { 
     'lukas-reineke/indent-blankline.nvim',
      config = function()
@@ -31,6 +32,20 @@ return require('packer').startup(function()
      end
   }
 
+  use {
+    'nvim-zh/colorful-winsep.nvim',
+    config = function()
+      require('colorful-winsep').setup({ })
+    end
+  }
+
+  -- use 'airblade/vim-gitgutter'
+  use {
+    'lewis6991/gitsigns.nvim',
+    config = function()
+      require('gitsigns').setup()
+    end
+  }
   use 'aklt/plantuml-syntax'
   use 'tpope/vim-fugitive'
   use 'vimwiki/vimwiki'
