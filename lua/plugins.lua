@@ -32,12 +32,12 @@ return require('packer').startup(function()
      end
   }
 
-  use {
-    'nvim-zh/colorful-winsep.nvim',
-    config = function()
-      require('colorful-winsep').setup({ })
-    end
-  }
+--   use {
+--     'nvim-zh/colorful-winsep.nvim',
+--     config = function()
+--       require('colorful-winsep').setup({ })
+--     end
+--   }
 
   -- use 'airblade/vim-gitgutter'
   use {
