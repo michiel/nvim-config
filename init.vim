@@ -72,7 +72,8 @@ nnoremap <leader>fc <cmd>lua require('telescope.builtin').colorscheme()<cr>
 nnoremap <leader>fq <cmd>lua require('telescope.builtin').quickfix()<cr>
 
 nnoremap <C-n> :NvimTreeToggle<CR>
-nnoremap <C-f> :NvimTreeFocus<CR>
+" nnoremap <C-f> :NvimTreeFocus<CR>
+nnoremap <C-f> :NvimTreeFindFile<CR>
 " nnoremap <leader>r :NvimTreeRefresh<CR>
 " nnoremap <leader>n :NvimTreeFindFile<CR>
 " NvimTreeOpen, NvimTreeClose, NvimTreeFocus, NvimTreeFindFileToggle, and NvimTreeResize are also available if you need them
